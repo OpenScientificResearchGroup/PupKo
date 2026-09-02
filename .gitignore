@@ -1,0 +1,59 @@
+# =========================================
+# Visual Studio / C++
+# =-=======================================
+
+## 特定于 Visual Studio 的文件
+*.sln
+*.vcxproj
+*.editorconfig
+*.config
+
+*.sln.docstates
+*.suo
+*.user
+*.vcxproj.filters
+*.vcxproj.user
+.vs/
+
+## 构建输出
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
+[Bb]in/
+[Oo]bj/
+
+## 编译产物
+*.lib
+*.dll
+*.exe
+*.pdb
+*.ipdb
+*.iobj
+*.ilk
+*.obj
+*.tlog
+*.log
+
+## NuGet 包
+*.nupkg
+*.nuget.props
+*.nuget.targets
+packages/
+
+## 资源文件
+#*.json
+
+## 此文件
+#.gitignore
+
+## CMake
+build/
+
+## AI Agent
+prompts/
+.cursorrules
+
+# 可以在这里添加你项目特有的忽略规则
+# 比如：
+# config.ini

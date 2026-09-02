@@ -1,0 +1,91 @@
+{
+    "protocol": "1.0",
+    "namespace": "git",
+    "commands": [
+        {
+            "id": "git.commit",
+            "name": "git commit",
+            "aliases": [
+                "gc",
+                "gcm"
+            ],
+            "description": "记录暂存区的更改到仓库",
+            "base_weight": 100.0,
+            "category": "version_control_system",
+            "context_rules": {
+                "requires": [
+                    "is_git_repository"
+                ]
+            },
+            "parameters": [
+                {
+                    "name": "message",
+                    "flags": [
+                        "-m",
+                        "--message"
+                    ],
+                    "type": "string",
+                    "prompt": "指定提交信息或[放弃(U)]:",
+                    "keywords": [
+                        "undo"
+                    ],
+                    "description": "提交的说明文本信息",
+                    "required": true,
+                    "default_value": "",
+                    "is_dynamic": false
+                }
+            ]
+        },
+        {
+            "id": "git.clone",
+            "name": "git clone",
+            "aliases": [
+                "gcl"
+            ],
+            "description": "克隆一个仓库到本地",
+            "base_weight": 90.0,
+            "category": "version_control_system",
+            "context_rules": {
+                "requires": [
+                    "is_git_installed"
+                ]
+            },
+            "parameters": [
+                {
+                    "name": "url",
+                    "flags": [
+                        "-u",
+                        "--url"
+                    ],
+                    "type": "string",
+                    "prompt": "指定仓库地址或[位置(L)/放弃(U)]:",
+                    "keywords": [
+                        "location",
+                        "undo"
+                    ],
+                    "description": "远程仓库的克隆 URL",
+                    "required": true,
+                    "default_value": "",
+                    "is_dynamic": true,
+                    "dynamic_provider": "clipboard.git_url"
+                },
+                {
+                    "name": "location",
+                    "flags": [
+                        "-l",
+                        "--location"
+                    ],
+                    "type": "string",
+                    "prompt": "指定本地目标目录或[放弃(U)]:",
+                    "keywords": [
+                        "undo"
+                    ],
+                    "description": "克隆到的本地目录路径",
+                    "required": false,
+                    "default_value": "./",
+                    "is_dynamic": false
+                }
+            ]
+        }
+    ]
+}

@@ -24,7 +24,7 @@
 #include "Session.hpp"
 #include "Utils/StringUtils.hpp"
 
-namespace PupKo {
+namespace pupko {
 
 class Engine::Impl {
 public:
@@ -83,16 +83,16 @@ bool Engine::ProcessKey(KeyEvent event) {
         composition.segments.push_back(segment);
     }
 
-    const Processor::ProcessResult binderResult = mImpl->binder.ProcessKey(composition, event);
-    if (binderResult != Processor::ProcessResult::Noop) {
+    const Processor::Result binderResult = mImpl->binder.ProcessKey(composition, event);
+    if (binderResult != Processor::Result::NoOperation) {
         mImpl->session.SetCurrentInput(composition.rawInput);
         mImpl->session.SetCandidates(composition.candidates);
         mImpl->session.SelectCandidate(composition.selectedIndex);
-        return binderResult == Processor::ProcessResult::Accepted;
+        return binderResult == Processor::Result::Accepted;
     }
 
-    const Processor::ProcessResult spellerResult = mImpl->speller.ProcessKey(composition, event);
-    if (spellerResult == Processor::ProcessResult::Accepted) {
+    const Processor::Result spellerResult = mImpl->speller.ProcessKey(composition, event);
+    if (spellerResult == Processor::Result::Accepted) {
         mImpl->session.SetCurrentInput(composition.rawInput);
         mImpl->session.SetCandidates(composition.candidates);
         mImpl->session.SelectCandidate(composition.selectedIndex);

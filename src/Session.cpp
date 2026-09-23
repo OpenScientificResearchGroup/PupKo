@@ -9,7 +9,7 @@
 
 #include <algorithm>
 
-namespace PupKo {
+namespace pupko {
 
 Session::Session() : selectedIndex_(0) {}
 

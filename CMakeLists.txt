@@ -12,21 +12,16 @@ include(GNUInstallDirs)
 
 add_library(PupKoCore
     src/Engine.cpp
-    src/HabitTracker.cpp
     src/Session.cpp
-    src/Processor/SpellerProcessor.cpp
-    src/Processor/SelectorProcessor.cpp
-    src/Processor/KeyBinderProcessor.cpp
-    src/Segmenter/CommandSegmenter.cpp
-    src/Translator/PrefixTranslator.cpp
-    src/Translator/AcronymTranslator.cpp
-    src/Translator/SubstringTranslator.cpp
-    src/Translator/FuzzyTypoTranslator.cpp
-    src/Filter/UniquifierFilter.cpp
-    src/Filter/HabitTuningFilter.cpp
-    src/Filter/RankerFilter.cpp
     src/PupKoCApi.cpp
-)
+    src/Tokenizer/CommandLineTokenizer.cpp
+    src/Router/RouterTypes.cpp
+    src/Router/SemanticRouter.cpp
+    src/Provider/SchemaProvider.cpp
+    src/Provider/HistoryProvider.cpp
+    src/Provider/AgentToolProvider.cpp
+    src/Provider/CompositeProvider.cpp
+    src/Ranker/CandidateRanker.cpp)
 
 target_include_directories(PupKoCore
     PUBLIC

@@ -14,7 +14,7 @@
 #include <utility>
 #include <vector>
 
-namespace PupKo {
+namespace pupko {
 
 using CandidateId = std::uint64_t;
 
@@ -73,4 +73,4 @@ struct FilterResult {
     double totalScore = 0.0;
 };
 
-}  // namespace PupKo
+} // namespace pupko

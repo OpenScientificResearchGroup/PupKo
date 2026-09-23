@@ -12,7 +12,7 @@
 
 #include "PupKo/Types.hpp"
 
-namespace PupKo {
+namespace pupko {
 
 class Session {
 public:
@@ -34,4 +34,4 @@ private:
     std::size_t selectedIndex_;
 };
 
-}  // namespace PupKo
+} // namespace pupko

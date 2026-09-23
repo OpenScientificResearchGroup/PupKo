@@ -13,7 +13,7 @@
 
 #include "PupKo/Types.hpp"
 
-namespace PupKo {
+namespace pupko {
 
 class Engine {
 public:

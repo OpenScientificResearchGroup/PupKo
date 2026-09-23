@@ -5,7 +5,7 @@
  * Copyright (c) 2026 PupKo contributors.
  */
 
-#include "PupKo/PupKoCApi.h"
+#include "PupKo/PupKoCApi.hpp"
 
 #include <cstring>
 #include <string>
@@ -30,22 +30,22 @@ void PupKoCreateEngine(void** engineHandle) {
     if (engineHandle == nullptr) {
         return;
     }
-    *engineHandle = reinterpret_cast<void*>(new PupKo::Engine());
+    *engineHandle = reinterpret_cast<void *>(new pupko::Engine());
 }
 
 void PupKoDestroyEngine(void* engineHandle) {
     if (engineHandle == nullptr) {
         return;
     }
-    delete reinterpret_cast<PupKo::Engine*>(engineHandle);
+    delete reinterpret_cast<pupko::Engine *>(engineHandle);
 }
 
 int PupKoProcessKey(void* engineHandle, unsigned int keyCode, const char* text, int textLength) {
     if (engineHandle == nullptr) {
         return 0;
     }
-    auto* engine = reinterpret_cast<PupKo::Engine*>(engineHandle);
-    PupKo::KeyEvent event;
+    auto *engine = reinterpret_cast<pupko::Engine *>(engineHandle);
+    pupko::KeyEvent event;
     event.keyCode = keyCode;
     event.isPrintable = text != nullptr && textLength > 0;
     event.text = ToUtf8String(text, textLength);
@@ -56,7 +56,7 @@ int PupKoGetCandidateCount(void* engineHandle) {
     if (engineHandle == nullptr) {
         return 0;
     }
-    auto* engine = reinterpret_cast<PupKo::Engine*>(engineHandle);
+    auto *engine = reinterpret_cast<pupko::Engine *>(engineHandle);
     return static_cast<int>(engine->GetCandidates().size());
 }
 
@@ -66,7 +66,7 @@ const char* PupKoGetCandidateText(void* engineHandle, int index) {
     if (engineHandle == nullptr || index < 0) {
         return nullptr;
     }
-    auto* engine = reinterpret_cast<PupKo::Engine*>(engineHandle);
+    auto *engine = reinterpret_cast<pupko::Engine *>(engineHandle);
     const auto candidates = engine->GetCandidates();
     if (static_cast<std::size_t>(index) >= candidates.size()) {
         return nullptr;
@@ -79,7 +79,7 @@ void PupKoClearInput(void* engineHandle) {
     if (engineHandle == nullptr) {
         return;
     }
-    auto* engine = reinterpret_cast<PupKo::Engine*>(engineHandle);
+    auto *engine = reinterpret_cast<pupko::Engine *>(engineHandle);
     engine->Clear();
 }
 

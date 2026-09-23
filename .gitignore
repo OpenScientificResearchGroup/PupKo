@@ -14,6 +14,8 @@
 *.vcxproj.filters
 *.vcxproj.user
 .vs/
+out/
+CMakeSettings.json
 
 ## 构建输出
 [Dd]ebug/
@@ -51,8 +53,11 @@ packages/
 build/
 
 ## AI Agent
-prompts/
+internal/
 .cursorrules
+
+## Legacy code
+legacy/
 
 # 可以在这里添加你项目特有的忽略规则
 # 比如：
